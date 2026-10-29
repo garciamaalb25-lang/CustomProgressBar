@@ -1,0 +1,23 @@
+<header data-bs-theme="dark">
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <span class="navbar-brand">Custom Progress Bar</span>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container py-5">
+        <h5>Básico (value y color)</h5>
+        <app-custom-progress-bar-component [value]="25" color="success" class="d-block mb-4"></app-custom-progress-bar-component>
+        <app-custom-progress-bar-component [value]="60" color="danger" class="d-block mb-4"></app-custom-progress-bar-component>
+        <app-custom-progress-bar-component [value]="90" color="warning" class="d-block mb-4"></app-custom-progress-bar-component>
+
+        <h5>Ampliación (striped, animated, texto y altura)</h5>
+        <app-custom-progress-bar-component [value]="40" color="info" [striped]="true" class="d-block mb-4"></app-custom-progress-bar-component>
+        <app-custom-progress-bar-component [value]="75" color="success" [animated]="true" [showLabel]="true" [height]="30" class="d-block mb-4"></app-custom-progress-bar-component>
+
+        <h5>Valor dinámico: {{ progress() }}%</h5>
+        <input type="range" class="form-range mb-3" min="0" max="100" [value]="progress()" (input)="changeProgress($event)">
+        <app-custom-progress-bar-component [value]="progress()" color="primary" [striped]="true" [showLabel]="true" [height]="30"></app-custom-progress-bar-component>
+    </div>
+</main>
